@@ -11,18 +11,34 @@
     </style>
 </head>
 <body>
+     <p>This page was last refreshed: <span id="last-loaded"></span></p>
     <h2 id="status1">What's The Garage Vibe Right Now?</h2>
     <h1 id="status">Loading status...</h1>
-
+   
     <script>
-        fetch('https://garagevibe.yolosec.net/status.txt')
-        .then(response => response.text())
-        .then(text => {
-            document.getElementById('status').innerText = text;
-        })
+        // Create a new Date object representing the current date and time
+        var now = new Date();
+
+        // Format the date and time as a readable string
+        var formattedTime = now.toLocaleString();
+
+        // Display the formatted date and time in the HTML element with id 'last-loaded'
+        document.getElementById('last-loaded').textContent = formattedTime;
+    </script>
+    <script>
+        function fetchStatus() 
+        {
+            fetch('https://garagevibe.yolosec.net/status.txt')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('status').innerText = text;
+            })
         .catch(error => {
             console.error('Error fetching status:', error);
         });
+        }
+        fetchStatus();
+        setInterval(fetchStatus, 30000);
     </script>
 </body>
 </html>
