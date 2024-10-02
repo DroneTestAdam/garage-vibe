@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>The Garage Vibe</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        h1 { font-size: 2em; }
+        p { font-size: 1.5em; }
+    </style>
+</head>
+<body>
+    <h1>The Garage Vibe:</h1>
+    <p id="status">Loading...</p>
+
+    <script>
+        fetch('https://kvdb.io/R3ri4qiqTeidz4ydQJUtYY/status')
+            .then(response => response.text())
+            .then(status => {
+                document.getElementById('status').textContent = status;
+            })
+            .catch(error => {
+                document.getElementById('status').textContent = 'Error loading status.';
+                console.error('Error fetching status:', error);
+            });
+    </script>
+</body>
+</html>

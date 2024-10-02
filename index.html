@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>The Garage Vibe</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-        h1 { font-size: 2em; }
-        p { font-size: 1.5em; }
-    </style>
+    <title>What's The Garage Vibe Right Now?</title>
 </head>
 <body>
-    <h1>The Garage Vibe:</h1>
-    <p id="status">Loading...</p>
+    <h1 id="status">Loading status...</h1>
 
     <script>
-        fetch('https://kvdb.io/R3ri4qiqTeidz4ydQJUtYY/status')
-            .then(response => response.text())
-            .then(status => {
-                document.getElementById('status').textContent = status;
-            })
-            .catch(error => {
-                document.getElementById('status').textContent = 'Error loading status.';
-                console.error('Error fetching status:', error);
-            });
+        fetch('https://raw.githubusercontent.com/your-username/your-username.github.io/main/status.txt')
+        .then(response => response.text())
+        .then(text => {
+            document.getElementById('status').innerText = text;
+        })
+        .catch(error => {
+            console.error('Error fetching status:', error);
+        });
     </script>
 </body>
 </html>
