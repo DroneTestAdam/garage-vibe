@@ -13,7 +13,7 @@
     <h1 id="status">Loading status...</h1>
 
     <script>
-        fetch('https://raw.githubusercontent.com/dronetestadam/dronetestadam.github.io/main/status.txt')
+        fetch('http://raw.githubusercontent.com/dronetestadam/dronetestadam.github.io/main/status.txt')
         .then(response => response.text())
         .then(text => {
             document.getElementById('status').innerText = text;

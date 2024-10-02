@@ -19,7 +19,7 @@ def update_status():
     ]:
         return jsonify({'error': 'Invalid status - Adam probably knows and doesnt want to fix it right now.'}), 400
 
-    url = f'https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{FILE_PATH}'
+    url = f'http://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/contents/{FILE_PATH}'
     headers = {'Authorization': f'token {GITHUB_TOKEN}'}
 
     # Get the SHA of the existing file
