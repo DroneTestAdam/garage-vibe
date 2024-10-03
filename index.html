@@ -11,20 +11,9 @@
     </style>
 </head>
 <body>
-     <p>This page was last refreshed: <span id="last-loaded"></span></p>
     <h2 id="status1">What's The Garage Vibe Right Now?</h2>
     <h1 id="status">Loading status...</h1>
-   
-    <script>
-        // Create a new Date object representing the current date and time
-        var now = new Date();
-
-        // Format the date and time as a readable string
-        var formattedTime = now.toLocaleString();
-
-        // Display the formatted date and time in the HTML element with id 'last-loaded'
-        document.getElementById('last-loaded').textContent = formattedTime;
-    </script>
+    <p>The status was last refreshed: <span id="last-loaded"></span></p>
     <script>
         function fetchStatus() 
         {
@@ -37,6 +26,11 @@
             console.error('Error fetching status:', error);
         });
         }
+        // Create a new Date object representing the current date and time
+        var now = new Date();
+        // Display the formatted date and time in the HTML element with id 'last-loaded'
+        var formattedTime = now.toLocaleString();
+        document.getElementById('last-loaded').textContent = formattedTime;
         fetchStatus();
         setInterval(fetchStatus, 30000);
     </script>
